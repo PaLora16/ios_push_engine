@@ -1,1 +1,6 @@
-push_engine.env/*
+.vscode/
+.pytest_cache/
+__pycache__/
+push_engine.env/
+.env
+

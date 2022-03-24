@@ -1,12 +1,5 @@
-fastapi
-uvicorn
-sqlalchemy
-passlib
-bcrypt
-python-multipart
-python-jose
-aiofiles
-requests
-pytest
-jinja2
-websockets
+fastapi==0.63.0
+pydantic==1.8.1
+uvicorn==0.13.4
+loguru==0.5.3
+python-dotenv==0.17.0
