@@ -3,4 +3,5 @@
 __pycache__/
 push_engine.env/
 .env
+docs/_internall.md
 

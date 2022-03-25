@@ -15,12 +15,16 @@ class BaseSettings(pydantic.BaseSettings):
     class Config:
         env_file = ENV_FILE
 
+#Push engine config
+class PushEngineSettings(BaseSettings):
+        API_KEY : str
+        class Config(BaseSettings.Config):
+            env_prefix = "PUSH_ENGINE_"
 
 class APISettings(BaseSettings):
     """Settings related with the FastAPI server"""
     host: str = "0.0.0.0"
     port: int = 5000
-
     class Config(BaseSettings.Config):
         env_prefix = "API_"
 
@@ -33,8 +37,6 @@ class APIDocsSettings(BaseSettings):
     """Description of the API"""
     version: str = "version"
     """Version of the API"""
-
-
     class Config(BaseSettings.Config):
         env_prefix = "API_DOCS_"
 
@@ -43,7 +45,6 @@ class RequestLoggingSettings(BaseSettings):
     """Settings related with the logging of requests"""
     level: str = "DEBUG"
     serialize: bool = False
-
     class Config(BaseSettings.Config):
         env_prefix = "REQUEST_LOG_"
 
@@ -51,3 +52,4 @@ class RequestLoggingSettings(BaseSettings):
 api_settings = APISettings()
 api_docs_settings = APIDocsSettings()
 request_logging_settings = RequestLoggingSettings()
+engine_settings = PushEngineSettings()

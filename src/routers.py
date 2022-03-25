@@ -1,24 +1,20 @@
 from fastapi import FastAPI
 
-from .routes import api
+from .routes import api_v1
 
 
 def setup_routes(app: FastAPI):
     """Each Router specified in routes/* must be referenced in setup_routes(),
     as a new app.include_router() call."""
     app.include_router(
-        api.router,
-        prefix="",
-        tags=["api"]
+        api_v1.router,
+        tags=["iOS push notification service"]
     )
 
 
 TAGS_METADATA = [
     {
         "name": "api",
-        "description": "General system endpoints for the API."
+        "description": "sends message to registered iOS device."
     }
 ]
-"""Tags are used in generated documentation for grouping endpoints.
-In the metadata a description can be provided for each tag.
-It is not mandatory to declare all tags in this array - only tags where the description is set."""
