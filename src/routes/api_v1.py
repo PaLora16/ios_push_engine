@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query
 from fastapi.responses import Response
 from enum import Enum
-from typing import Optional,List
+from typing import Optional
 from ..push_engine import send_message
 
 router = APIRouter(

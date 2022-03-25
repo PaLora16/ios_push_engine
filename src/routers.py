@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from .routes import api_v1
+from .routes import api_v1, hcheck
 
 
 def setup_routes(app: FastAPI):
@@ -8,13 +8,22 @@ def setup_routes(app: FastAPI):
     as a new app.include_router() call."""
     app.include_router(
         api_v1.router,
-        tags=["iOS push notification service"]
+        tags=["ios push notification service"]
+    )
+    app.include_router(
+        hcheck.router,
+        tags=["healthcheck endpoint"]
     )
 
 
-TAGS_METADATA = [
-    {
-        "name": "api",
-        "description": "sends message to registered iOS device."
-    }
-]
+
+# TAGS_METADATA = [
+#     {
+#         "name": "api",
+#         "description": "sends message to registered iOS device."
+#     },
+#     {
+#         "name": "status",
+#         "description": "health check"
+#     }
+# ]

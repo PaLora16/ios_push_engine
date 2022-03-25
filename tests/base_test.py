@@ -6,7 +6,7 @@ from requests import Session, Response
 from src.app import app
 
 
-class BaseAPITest:
+class  BaseAPITest:
     """Base API test class that starts a fastapi TestClient (https://fastapi.tiangolo.com/tutorial/testing/)."""
     client: Session
 

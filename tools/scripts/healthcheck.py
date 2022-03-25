@@ -16,7 +16,7 @@ except ModuleNotFoundError:
 
 def healthcheck():
     try:
-        with urllib.request.urlopen(f"http://localhost:{api_settings.port}/status") as response:
+        with urllib.request.urlopen(f"http://localhost:{api_settings.port}/") as response:
             code = response.getcode()
             text = response.read().decode()
             print(f"Healthcheck response ({code}): {text}")
