@@ -3,13 +3,16 @@ from fastapi.responses import JSONResponse
 from fastapi import status
 import requests
 
-def send_message(message: str):
+async def send_message(message: str, description: str, type: str):
     
-    # requests.post('https://api.mynotifier.app', {
-    # "apiKey": settings.API_KEY,
-    # "message": message,
-    # "description": "This is cool",
-    # "type": "info", # info, error, warning or success
-    # })
+    requests.post(settings.URL, 
+    {
+    "apiKey": settings.API_KEY,
+    "message": message,
+    "description": description,
+    "type": type, 
+    })
     
-    return (f"Message {settings.API_KEY} send OK",status.HTTP_200_OK)
+    respose : str = ','.join([message,description,type])
+    
+    return (f"Message {respose } send OK",status.HTTP_200_OK)

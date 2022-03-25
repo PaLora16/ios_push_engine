@@ -18,6 +18,7 @@ class BaseSettings(pydantic.BaseSettings):
 #Push engine config
 class PushEngineSettings(BaseSettings):
         API_KEY : str
+        URL = "https://api.mynotifier.app"
         class Config(BaseSettings.Config):
             env_prefix = "PUSH_ENGINE_"
 
