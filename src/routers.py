@@ -14,16 +14,3 @@ def setup_routes(app: FastAPI):
         hcheck.router,
         tags=["healthcheck endpoint"]
     )
-
-
-
-# TAGS_METADATA = [
-#     {
-#         "name": "api",
-#         "description": "sends message to registered iOS device."
-#     },
-#     {
-#         "name": "status",
-#         "description": "health check"
-#     }
-# ]
